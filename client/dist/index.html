@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Bathroom Finder for Tourists</h3>
+    <h4>Providing relief</h4>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+        function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: { lat: 40.725979, lng: -74.008011 }
+  });
+
+  var georssLayer = new google.maps.KmlLayer({
+    url: 'https://data.cityofnewyork.us/resource/hjae-yuav.geojson'
+  });
+  georssLayer.setMap(map);
+}
+        // var map, infoWindow;
+        // function initMap() {
+        //     map = new google.maps.Map(document.getElementById('map'), {
+        //         // { lat: 40.725979, lng: -74.008011 } hack reactor
+        //         center: { lat: -34.397, lng: 150.644 },
+        //         zoom: 18
+        //     });
+        //     infoWindow = new google.maps.InfoWindow;
+
+        //     // Try HTML5 geolocation.
+        //     if (navigator.geolocation) {
+        //         navigator.geolocation.getCurrentPosition(function (position) {
+        //             var pos = {
+        //                 lat: position.coords.latitude,
+        //                 lng: position.coords.longitude
+        //             };
+        //             // console.log(position.coords.latitude, "is this it?")
+
+        //             infoWindow.setPosition(pos);
+        //             infoWindow.setContent('Location found.');
+        //             infoWindow.open(map);
+        //             map.setCenter(pos);
+        //         }, function () {
+        //             handleLocationError(true, infoWindow, map.getCenter());
+        //         });
+        //     } else {
+        //         // Browser doesn't support Geolocation
+        //         handleLocationError(false, infoWindow, map.getCenter());
+        //     }
+
+        //     var marker = new google.maps.Marker({
+        //         position: { lat: 40.725979, lng: -74.008011 },
+        //         map: map,
+        //         title: 'Hack Reactor!'
+        //     })
+        // }
+
+        // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        //     infoWindow.setPosition(pos);
+        //     infoWindow.setContent(browserHasGeolocation ?
+        //         'Error: The Geolocation service failed.' :
+        //         'Error: Your browser doesn\'t support geolocation.');
+        //     infoWindow.open(map);
+        // }
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPAh748qL12mgMm6T56s0hEVZ2nErw2iA&callback=initMap"></script>
+</body>
+
+</html>
