@@ -89,8 +89,24 @@
             var infoWindow = new google.maps.InfoWindow;
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 40.725979, lng: -74.008011 },
-                zoom: 10,
+                zoom: 5
+                ,
             })
+
+
+            var marker = new google.maps.Marker({
+                position: { lat: 40.725979, lng: -74.008011 },
+                map: map,
+                title: 'Hack Reactor!',
+                icon: {
+                    url: "http://static1.squarespace.com/static/522a22cbe4b04681b0bff826/t/581cc65fe4fcb5a68ecd940c/1478280803080/hrhq-avatar.png?format=1500w"
+                }
+                
+            })
+            marker.addListener('click', function () {
+                map.setZoom(17);
+                map.setCenter(marker.getPosition());
+            });
 
             var locations = [
 
@@ -292,11 +308,7 @@
 
             ]
 
-            var marker = new google.maps.Marker({
-                position: { lat: 40.725979, lng: -74.008011 },
-                map: map,
-                title: 'Hack Reactor!'
-            })
+           
 
 
 
@@ -308,10 +320,7 @@
                 infoWindow.open(map);
             }
 
-            marker.addListener('click', function () {
-                map.setZoom(17);
-                map.setCenter(marker.getPosition());
-            });
+           
 
             var infowindow = new google.maps.InfoWindow({});
             var markerGreen, count;
