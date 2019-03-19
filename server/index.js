@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const parser = require("body-parser");
-const db = require('../database');
+// const db = require('../database');
 const path = require("path");
 const cors = require("cors");
 const port = 3000
@@ -16,16 +16,16 @@ app.use(express.static(path.join(__dirname + "/../client/dist")));
 
 
 
-app.get('/map', (req, res) => {
-    db.query('SELECT * FROM bathroomFinder', (err, result) => {
-        if (err) {
-            console.log(err)
-        } else {
-            res.send(result)
-        }
-    })
+// app.get('/map', (req, res) => {
+//     db.query('SELECT * FROM bathroomFinder', (err, result) => {
+//         if (err) {
+//             console.log(err)
+//         } else {
+//             res.send(result)
+//         }
+//     })
 
-})
+// })
 
 
 app.get("*", (req, res) => {
